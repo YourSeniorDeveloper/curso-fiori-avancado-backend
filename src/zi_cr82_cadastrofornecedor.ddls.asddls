@@ -1,0 +1,20 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Cadastro de Fornecedores'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+    serviceQuality: #X,
+    sizeCategory: #S,
+    dataClass: #MIXED
+}
+define view entity ZI_CR82_CadastroFornecedor as select from zcr82_t_forn
+{
+    key supplier_id as SupplierId,
+    name as Name,
+    address as Address,
+    city as City,
+    postal_code as PostalCode,
+    country as Country,
+    phone as Phone,
+    email as Email
+}
