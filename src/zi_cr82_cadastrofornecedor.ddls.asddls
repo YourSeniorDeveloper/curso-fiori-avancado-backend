@@ -7,7 +7,8 @@
     sizeCategory: #S,
     dataClass: #MIXED
 }
-define view entity ZI_CR82_CadastroFornecedor as select from zcr82_t_forn
+
+define root view entity ZI_CR82_CadastroFornecedor as select from zcr82_t_forn
 {
     key supplier_id as SupplierId,
     name as Name,

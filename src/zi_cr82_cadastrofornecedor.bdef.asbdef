@@ -1,0 +1,36 @@
+managed implementation in class zbp_i_cr82_cadastrofornecedor unique;
+strict ( 2 );
+with draft;
+define behavior for ZI_CR82_CadastroFornecedor //alias <alias_name>
+persistent table zcr82_t_forn
+draft table zcr82_t_forn_d
+lock master
+total etag SupplierId
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly : update ) SupplierId;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+
+  draft determine action Prepare;
+
+  mapping for zcr82_t_forn
+    {
+      SupplierId = supplier_id;
+      Address    = address;
+      City       = city;
+      Country    = country;
+      Email      = email;
+      Name       = name;
+      Phone      = phone;
+      PostalCode = postal_code;
+    }
+
+}

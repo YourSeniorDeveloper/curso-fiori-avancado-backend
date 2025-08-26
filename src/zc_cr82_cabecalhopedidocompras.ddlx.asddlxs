@@ -1,0 +1,45 @@
+@Metadata.layer: #CORE
+annotate entity ZC_CR82_CABECALHOPEDIDOCOMPRAS with
+{
+  @UI.facet: [{ id: 'General',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'General Information',
+                position: 10 },
+              { targetElement: '_Itens',
+                id: 'Items',
+                type: #LINEITEM_REFERENCE,
+                label: 'Items',
+                position: 20 }]
+  @UI.identification: [{ position: 10, label: 'Número do Pedido' }]
+  @UI.lineItem: [{ position: 10, label: 'Número do Pedido' }]
+  PoNumber;
+  @UI.identification: [{ position: 20, label: 'Fornecedor' }]
+  @UI.lineItem: [{ position: 20, label: 'Fornecedor' }]
+  SupplierId;
+  @UI.identification: [{ position: 30, label: 'Data do Pedido' }]
+  @UI.lineItem: [{ position: 30, label: 'Data do Pedido' }]
+  OrderDate;
+  @UI.identification: [{ position: 40, label: 'Status' }]
+  @UI.lineItem: [{ position: 40, label: 'Status' }]
+  Status;
+  @UI.identification: [{ position: 50, label: 'Valor Total' }]
+  @UI.lineItem: [{ position: 50, label: 'Valor Total' }]
+  TotalAmount;
+  @UI.identification: [{ position: 60, label: 'Moeda' }]
+  @UI.lineItem: [{ position: 60, label: 'Moeda' }]
+  Currency;
+  @UI.identification: [{ position: 70, label: 'Criado Por' }]
+  @UI.lineItem: [{ position: 70, label: 'Criado Por' }]
+  CreatedBy;
+  @UI.identification: [{ position: 80, label: 'Data de Criação' }]
+  @UI.lineItem: [{ position: 80, label: 'Data de Criação' }]
+  CreatedOn;
+  @UI.identification: [{ position: 90, label: 'Alterado Por' }]
+  @UI.lineItem: [{ position: 90, label: 'Alterado Por' }]
+  ChangedBy;
+  @UI.identification: [{ position: 100, label: 'Data de Alteração' }]
+  @UI.lineItem: [{ position: 100, label: 'Data de Alteração' }]
+  ChangedOn;
+
+}

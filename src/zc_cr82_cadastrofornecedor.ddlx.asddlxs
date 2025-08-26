@@ -1,0 +1,35 @@
+@Metadata.layer: #CORE
+annotate entity ZC_CR82_CADASTROFORNECEDOR with
+{
+  @UI.facet: [{ id: 'General',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Item Information',
+                  position: 10 }]
+
+  @UI.lineItem: [{ position: 10, label: 'Código Fornecedor' }]
+  @UI.identification: [{ position: 10, label: 'Código Fornecedor' }]
+  SupplierId;
+  @UI.lineItem: [{ position: 20, label: 'Nome' }]
+  @UI.identification: [{ position: 20, label: 'Nome' }]
+  Name;
+  @UI.lineItem: [{ position: 30, label: 'Endereço' }]
+  @UI.identification: [{ position: 30, label: 'Endereço' }]
+  Address;
+  @UI.lineItem: [{ position: 40, label: 'Cidade' }]
+  @UI.identification: [{ position: 40, label: 'Cidade' }]
+  City;
+  @UI.lineItem: [{ position: 50, label: 'CEP' }]
+  @UI.identification: [{ position: 50, label: 'CEP' }]
+  PostalCode;
+  @UI.lineItem: [{ position: 60, label: 'País' }]
+  @UI.identification: [{ position: 60, label: 'País' }]
+  Country;
+  @UI.lineItem: [{ position: 70, label: 'Telefone' }]
+  @UI.identification: [{ position: 70, label: 'Telefone' }]
+  Phone;
+  @UI.lineItem: [{ position: 80, label: 'Email' }]
+  @UI.identification: [{ position: 80, label: 'Email' }]
+  Email;
+
+}

@@ -1,0 +1,41 @@
+@Metadata.layer: #CORE
+annotate entity ZC_CR82_ITENSPEDIDOCOMPRAS with
+{
+  @UI.facet: [{ id: 'General',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Item Information',
+                  position: 10 }]
+
+  @UI.lineItem: [{ position: 20, label: 'Número do Pedido' }]
+  @UI.identification: [{ position: 20, label: 'Número do Pedido' }]
+  PoNumber;
+  @UI.lineItem: [{ position: 30, label: 'Número do Item' }]
+  @UI.identification: [{ position: 30, label: 'Número do Item' }]
+  ItemNumber;
+  @UI.lineItem: [{ position: 40, label: 'Material' }]
+  @UI.identification: [{ position: 40, label: 'Material' }]
+  Material;
+  @UI.lineItem: [{ position: 50, label: 'Descrição' }]
+  @UI.identification: [{ position: 50, label: 'Descrição' }]
+  Description;
+  @UI.lineItem: [{ position: 60, label: 'Quantidade' }]
+  @UI.identification: [{ position: 60, label: 'Quantidade' }]
+  Quantity;
+  @UI.lineItem: [{ position: 70, label: 'Unidade' }]
+  @UI.identification: [{ position: 70, label: 'Unidade' }]
+  Unit;
+  @UI.lineItem: [{ position: 80, label: 'Preço' }]
+  @UI.identification: [{ position: 80, label: 'Preço' }]
+  Price;
+  @UI.lineItem: [{ position: 90, label: 'Moeda' }]
+  @UI.identification: [{ position: 90, label: 'Moeda' }]
+  Currency;
+  @UI.lineItem: [{ position: 100, label: 'Data de Entrega' }]
+  @UI.identification: [{ position: 100, label: 'Data de Entrega' }]
+  DeliveryDate;
+  @UI.lineItem: [{ position: 110, label: 'Status do Item' }]
+  @UI.identification: [{ position: 110, label: 'Status do Item' }]
+  Status;
+
+}
