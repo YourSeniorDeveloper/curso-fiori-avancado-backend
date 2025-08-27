@@ -1,26 +1,34 @@
 @Metadata.layer: #CORE
+
+// Anotação para exibir o nome do App na Fiori Launchpad
+@UI.headerInfo: { typeName: 'Cadastro de Fornecedor', typeNamePlural: 'Cadastro de Fornecedores' }
+
 annotate entity ZC_CR82_CADASTROFORNECEDOR with
 {
+
+  // Anotação para definir o título da entidade dentro da Object Page
   @UI.facet: [{ id: 'General',
                   purpose: #STANDARD,
                   type: #IDENTIFICATION_REFERENCE,
-                  label: 'Item Information',
+                  label: 'Cadastro de Fornecedor',
                   position: 10 }]
 
-  @UI.lineItem: [{ position: 10, label: 'Código Fornecedor' }]
-  @UI.identification: [{ position: 10, label: 'Código Fornecedor' }]
+  @UI.lineItem: [{ position: 10, label: 'Código Fornecedor', importance: #HIGH }] // Define a coluna "Código Fornecedor" no List Report
+  @UI.identification: [{ position: 10, label: 'Código Fornecedor' }] // Define o campo "Código Fornecedor" na Object Page
+  @UI.selectionField: [{ position: 10 }] // Define o campo "Código Fornecedor" na tela de seleção
   SupplierId;
-  @UI.lineItem: [{ position: 20, label: 'Nome' }]
+  @UI.lineItem: [{ position: 20, label: 'Nome', importance: #HIGH }] // Importance Define a prioridade de exibição da coluna no List Report  
   @UI.identification: [{ position: 20, label: 'Nome' }]
+  @UI.selectionField: [{ position: 20 }] // Define o campo "Nome" na tela de seleção    
   Name;
-  @UI.lineItem: [{ position: 30, label: 'Endereço' }]
+  @UI.lineItem: [{ position: 30, label: 'Endereço', importance: #HIGH }]
   @UI.identification: [{ position: 30, label: 'Endereço' }]
   Address;
   @UI.lineItem: [{ position: 40, label: 'Cidade' }]
-  @UI.identification: [{ position: 40, label: 'Cidade' }]
+  @UI.identification: [{ position: 40, label: 'Cidade', importance: #MEDIUM }] // Não mostra em telas de menor resolução ( tablets ) )
   City;
   @UI.lineItem: [{ position: 50, label: 'CEP' }]
-  @UI.identification: [{ position: 50, label: 'CEP' }]
+  @UI.identification: [{ position: 50, label: 'CEP', importance: #LOW }] // Não mostra em telas de menor resolução ( celulares )
   PostalCode;
   @UI.lineItem: [{ position: 60, label: 'País' }]
   @UI.identification: [{ position: 60, label: 'País' }]

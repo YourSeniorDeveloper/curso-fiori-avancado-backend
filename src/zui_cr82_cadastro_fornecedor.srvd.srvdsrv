@@ -1,0 +1,4 @@
+@EndUserText.label: 'Cadastro Fornecedor'
+define service ZUI_CR82_CADASTRO_FORNECEDOR {
+  expose ZC_CR82_CADASTROFORNECEDOR;
+}
