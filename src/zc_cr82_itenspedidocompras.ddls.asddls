@@ -2,20 +2,33 @@
 @EndUserText.label: 'Itens do Pedido de compras'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
-define view entity ZC_CR82_ITENSPEDIDOCOMPRAS as projection on ZI_CR82_ItensPedidoCompras
+define view entity ZC_CR82_ITENSPEDIDOCOMPRAS
+
+  as projection on ZI_CR82_ItensPedidoCompras
 {
-    key PoNumber,
-    key ItemNumber,
-    Material,
-    Description,
-    @Semantics.quantity.unitOfMeasure: 'Unit'
-    Quantity,
-    Unit,
-    @Semantics.amount.currencyCode: 'Currency'
-    Price,
-    Currency,
-    DeliveryDate,
-    Status,
-    /* Associations */
-    _Cabecalho: redirected to parent ZC_CR82_CABECALHOPEDIDOCOMPRAS
+      @EndUserText.label: 'Número do Pedido de compras'
+  key PoNumber,
+      @EndUserText.label: 'Número do Item'
+  key ItemNumber,
+      @EndUserText.label: 'Código do Material'
+      Material,
+      @EndUserText.label: 'Descrição do Material'
+      Description,
+      @EndUserText.label: 'Quantidade'
+      @Semantics.quantity.unitOfMeasure: 'Unit'
+      Quantity,
+      @EndUserText.label: 'Unidade de Medida'
+      Unit,
+      @EndUserText.label: 'Preço'
+      @Semantics.amount.currencyCode: 'Currency'
+      Price,
+      @EndUserText.label: 'Moeda'
+      Currency,
+      @EndUserText.label: 'Data de Entrega'
+      DeliveryDate,
+      @EndUserText.label: 'Status do Item'
+      Status,
+      /* Associations */
+      //_Cabecalho
+      _Cabecalho : redirected to parent ZC_CR82_CABECALHOPEDIDOCOMPRAS
 }

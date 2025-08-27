@@ -1,0 +1,69 @@
+managed implementation in class zbp_i_cr82_cabecalhopedidocomp unique;
+strict ( 2 );
+with draft;
+define behavior for ZI_CR82_CabecalhoPedidoCompras //alias <alias_name>
+persistent table zcr82_t_poh
+draft table zcr82_t_poh_d
+lock master
+total etag PoNumber
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly : update ) PoNumber;
+  association _Itens { create; with draft; }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+
+  draft determine action Prepare;
+
+  mapping for zcr82_t_poh
+    {
+      ChangedBy  = changed_by;
+      ChangedOn  = changed_on;
+      CreatedBy  = created_by;
+      CreatedOn  = created_on;
+      Currency   = currency;
+      OrderDate  = order_date;
+      PoNumber   = po_number;
+      Status     = status;
+      SupplierId = supplier_id;
+      TotalAmount = total_amount;
+    }
+
+}
+
+
+
+define behavior for ZI_CR82_ItensPedidoCompras //alias <alias_name>
+persistent table zcr82_t_poi
+draft table zcr82_t_poi_d
+lock dependent by _Cabecalho
+authorization dependent by _Cabecalho
+etag master PoNumber
+{
+  update;
+  delete;
+  field ( readonly ) PoNumber, ItemNumber;
+  association _Cabecalho { with draft; }
+
+  mapping for zcr82_t_poi
+    {
+      Currency     = currency;
+      DeliveryDate = delivery_date;
+      Description  = description;
+      ItemNumber   = item_number;
+      Material     = material;
+      PoNumber     = po_number;
+      Price        = price;
+      Quantity     = quantity;
+      Status       = status;
+      Unit         = unit;
+    }
+
+}

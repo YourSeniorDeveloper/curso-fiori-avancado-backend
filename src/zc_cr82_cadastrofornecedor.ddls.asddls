@@ -3,6 +3,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 define root view entity ZC_CR82_CADASTROFORNECEDOR
+provider contract transactional_query
   as projection on ZI_CR82_CadastroFornecedor
 {
       @EndUserText.label: 'Código do Fornecedor' // Nome amigável para o campo
