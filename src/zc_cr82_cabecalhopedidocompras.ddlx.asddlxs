@@ -1,4 +1,9 @@
 @Metadata.layer: #CORE
+
+// Anotação para exibir o nome do App na Fiori Launchpad
+@UI.headerInfo: { typeName: 'Pedido de Compra', typeNamePlural: 'Pedidos de Compra' }
+
+
 annotate entity ZC_CR82_CABECALHOPEDIDOCOMPRAS with
 {
   @UI.facet: [{ id: 'General',
@@ -26,9 +31,6 @@ annotate entity ZC_CR82_CABECALHOPEDIDOCOMPRAS with
   @UI.identification: [{ position: 50, label: 'Valor Total' }]
   @UI.lineItem: [{ position: 50, label: 'Valor Total' }]
   TotalAmount;
-  @UI.identification: [{ position: 60, label: 'Moeda' }]
-  @UI.lineItem: [{ position: 60, label: 'Moeda' }]
-  Currency;
   @UI.identification: [{ position: 70, label: 'Criado Por' }]
   @UI.lineItem: [{ position: 70, label: 'Criado Por' }]
   CreatedBy;

@@ -18,11 +18,13 @@ define view entity ZC_CR82_ITENSPEDIDOCOMPRAS
       @Semantics.quantity.unitOfMeasure: 'Unit'
       Quantity,
       @EndUserText.label: 'Unidade de Medida'
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'I_UNITOFMEASURE', element: 'UnitOfMeasure' } }] // Permite pesquisa de país
       Unit,
       @EndUserText.label: 'Preço'
       @Semantics.amount.currencyCode: 'Currency'
       Price,
       @EndUserText.label: 'Moeda'
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CURRENCY', element: 'Currency' } }] // Permite pesquisa de país
       Currency,
       @EndUserText.label: 'Data de Entrega'
       DeliveryDate,

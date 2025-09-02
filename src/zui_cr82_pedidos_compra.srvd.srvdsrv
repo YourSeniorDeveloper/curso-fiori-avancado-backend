@@ -1,0 +1,5 @@
+@EndUserText.label: 'Cadastro Pedidos de Compra'
+define service ZUI_CR82_PEDIDOS_COMPRA {
+  expose ZC_CR82_CABECALHOPEDIDOCOMPRAS;
+  expose ZC_CR82_ITENSPEDIDOCOMPRAS;
+}

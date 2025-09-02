@@ -3,13 +3,14 @@
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 define root view entity ZC_CR82_CABECALHOPEDIDOCOMPRAS
-provider contract transactional_query
+  provider contract transactional_query
   as projection on ZI_CR82_CabecalhoPedidoCompras
 {
       @EndUserText.label: 'Número do pedido'
   key PoNumber,
       @EndUserText.label: 'ID do fornecedor'
       @ObjectModel.foreignKey.association: '_Supplier'
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CR82_CADASTROFORNECEDOR', element: 'SupplierId' } }] // Permite pesquisa de país
       SupplierId,
       @EndUserText.label: 'Data do pedido'
       OrderDate,
@@ -20,6 +21,7 @@ provider contract transactional_query
       TotalAmount,
       @Semantics.currencyCode: true
       @EndUserText.label: 'Moeda'
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CURRENCY', element: 'Currency' } }] // Permite pesquisa de país
       Currency,
       @EndUserText.label: 'Criado por'
       CreatedBy,

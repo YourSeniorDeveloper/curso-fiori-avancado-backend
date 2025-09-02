@@ -13,6 +13,7 @@ authorization master ( instance )
   update;
   delete;
   field ( readonly : update ) PoNumber;
+  field ( readonly ) CreatedBy, CreatedOn, ChangedBy, ChangedOn, Status, TotalAmount;
   association _Itens { create; with draft; }
 
   draft action Edit;
@@ -49,7 +50,7 @@ etag master PoNumber
 {
   update;
   delete;
-  field ( readonly ) PoNumber, ItemNumber;
+  field ( readonly ) PoNumber, Status;
   association _Cabecalho { with draft; }
 
   mapping for zcr82_t_poi
