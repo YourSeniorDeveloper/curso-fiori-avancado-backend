@@ -12,9 +12,13 @@ association [0..1] to ZI_CR82_CadastroFornecedor as _Supplier on $projection.Sup
     @Semantics.amount.currencyCode: 'Currency'
     total_amount as TotalAmount,
     currency as Currency,
+    @Semantics.user.createdBy: true
     created_by as CreatedBy,
+    @Semantics.systemDateTime.createdAt: true
     created_on as CreatedOn,
+    @Semantics.user.lastChangedBy: true
     changed_by as ChangedBy,
+    @Semantics.systemDateTime.lastChangedAt: true
     changed_on as ChangedOn,
     _Supplier, // Make association public
     _Itens // Make association public

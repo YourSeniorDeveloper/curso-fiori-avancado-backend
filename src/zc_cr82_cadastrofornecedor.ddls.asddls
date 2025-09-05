@@ -3,17 +3,21 @@
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 define root view entity ZC_CR82_CADASTROFORNECEDOR
-provider contract transactional_query
+  provider contract transactional_query
   as projection on ZI_CR82_CadastroFornecedor
 {
       @EndUserText.label: 'Código do Fornecedor' // Nome amigável para o campo
   key SupplierId,
       @EndUserText.label: 'Nome do Fornecedor'
       Name,
-      @EndUserText.label: 'Endereço'
-      Address,
+      @EndUserText.label: 'Rua'
+      Street,
+      @EndUserText.label: 'Número'
+      AddressNumber,
       @EndUserText.label: 'Cidade'
       City,
+      @EndUserText.label: 'Estado'
+      State,
       @EndUserText.label: 'Código Postal'
       PostalCode,
       @EndUserText.label: 'País'

@@ -12,8 +12,10 @@ define root view entity ZI_CR82_CadastroFornecedor as select from zcr82_t_forn
 {
     key supplier_id as SupplierId,
     name as Name,
-    address as Address,
+    street as Street,
+    addr_number as AddressNumber,
     city as City,
+    state as State,
     postal_code as PostalCode,
     country as Country,
     phone as Phone,

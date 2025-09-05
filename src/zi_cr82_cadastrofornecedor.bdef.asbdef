@@ -24,8 +24,10 @@ authorization master ( instance )
   mapping for zcr82_t_forn
     {
       SupplierId = supplier_id;
-      Address    = address;
+      Street        = street;
+      AddressNumber = addr_number;
       City       = city;
+      State      = state;
       Country    = country;
       Email      = email;
       Name       = name;

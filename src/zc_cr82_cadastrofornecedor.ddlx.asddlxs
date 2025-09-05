@@ -17,27 +17,33 @@ annotate entity ZC_CR82_CADASTROFORNECEDOR with
   @UI.identification: [{ position: 10, label: 'Código Fornecedor' }] // Define o campo "Código Fornecedor" na Object Page
   @UI.selectionField: [{ position: 10 }] // Define o campo "Código Fornecedor" na tela de seleção
   SupplierId;
-  @UI.lineItem: [{ position: 20, label: 'Nome', importance: #HIGH }] // Importance Define a prioridade de exibição da coluna no List Report  
+  @UI.lineItem: [{ position: 20, label: 'Nome', importance: #HIGH }] // Importance Define a prioridade de exibição da coluna no List Report
   @UI.identification: [{ position: 20, label: 'Nome' }]
-  @UI.selectionField: [{ position: 20 }] // Define o campo "Nome" na tela de seleção    
+  @UI.selectionField: [{ position: 20 }] // Define o campo "Nome" na tela de seleção
   Name;
-  @UI.lineItem: [{ position: 30, label: 'Endereço', importance: #HIGH }]
-  @UI.identification: [{ position: 30, label: 'Endereço' }]
-  Address;
+  @UI.lineItem: [{ position: 30, label: 'Rua', importance: #HIGH }]
+  @UI.identification: [{ position: 30, label: 'Rua' }]
+  Street;
+  @UI.lineItem: [{ position: 30, label: 'Numero', importance: #HIGH }]
+  @UI.identification: [{ position: 30, label: 'Numero' }]
+  AddressNumber;
   @UI.lineItem: [{ position: 40, label: 'Cidade' }]
   @UI.identification: [{ position: 40, label: 'Cidade', importance: #MEDIUM }] // Não mostra em telas de menor resolução ( tablets ) )
   City;
-  @UI.lineItem: [{ position: 50, label: 'CEP' }]
-  @UI.identification: [{ position: 50, label: 'CEP', importance: #LOW }] // Não mostra em telas de menor resolução ( celulares )
+  @UI.lineItem: [{ position: 50, label: 'Estado' }]
+  @UI.identification: [{ position: 50, label: 'Estado', importance: #MEDIUM }] // Não mostra em telas de menor resolução ( tablets ) )
+  State;
+  @UI.lineItem: [{ position: 60, label: 'CEP' }]
+  @UI.identification: [{ position: 60, label: 'CEP', importance: #LOW }] // Não mostra em telas de menor resolução ( celulares )
   PostalCode;
-  @UI.lineItem: [{ position: 60, label: 'País' }]
-  @UI.identification: [{ position: 60, label: 'País' }]
+  @UI.lineItem: [{ position: 70, label: 'País' }]
+  @UI.identification: [{ position: 70, label: 'País' }]
   Country;
-  @UI.lineItem: [{ position: 70, label: 'Telefone' }]
-  @UI.identification: [{ position: 70, label: 'Telefone' }]
+  @UI.lineItem: [{ position: 80, label: 'Telefone' }]
+  @UI.identification: [{ position: 80, label: 'Telefone' }]
   Phone;
-  @UI.lineItem: [{ position: 80, label: 'Email' }]
-  @UI.identification: [{ position: 80, label: 'Email' }]
+  @UI.lineItem: [{ position: 90, label: 'Email' }]
+  @UI.identification: [{ position: 90, label: 'Email' }]
   Email;
 
 }
