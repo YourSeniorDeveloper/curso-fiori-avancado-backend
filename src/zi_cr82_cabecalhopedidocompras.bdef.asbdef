@@ -5,14 +5,14 @@ define behavior for ZI_CR82_CabecalhoPedidoCompras //alias <alias_name>
 persistent table zcr82_t_poh
 draft table zcr82_t_poh_d
 lock master
-total etag PoNumber
+total etag ChangedOn
 authorization master ( instance )
 //etag master <field_name>
 {
   create ( authorization : global );
   update;
   delete;
-  field ( readonly : update ) PoNumber;
+  field ( readonly, numbering : managed ) PoNumber;
   field ( readonly ) CreatedBy, CreatedOn, ChangedBy, ChangedOn, Status, TotalAmount;
   association _Itens { create; with draft; }
 

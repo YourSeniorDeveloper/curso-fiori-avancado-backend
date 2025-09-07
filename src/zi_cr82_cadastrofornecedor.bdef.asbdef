@@ -1,3 +1,4 @@
+// - Inicio - Aplicativo Básico Cadastro de Fornecedor
 managed implementation in class zbp_i_cr82_cadastrofornecedor unique;
 strict ( 2 );
 with draft;
@@ -36,3 +37,4 @@ authorization master ( instance )
     }
 
 }
+// - Fim - Aplicativo Básico Cadastro de Fornecedor

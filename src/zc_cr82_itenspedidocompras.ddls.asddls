@@ -3,10 +3,10 @@
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 define view entity ZC_CR82_ITENSPEDIDOCOMPRAS
-
   as projection on ZI_CR82_ItensPedidoCompras
 {
       @EndUserText.label: 'Número do Pedido de compras'
+
   key PoNumber,
       @EndUserText.label: 'Número do Item'
   key ItemNumber,
@@ -31,6 +31,5 @@ define view entity ZC_CR82_ITENSPEDIDOCOMPRAS
       @EndUserText.label: 'Status do Item'
       Status,
       /* Associations */
-      //_Cabecalho
       _Cabecalho : redirected to parent ZC_CR82_CABECALHOPEDIDOCOMPRAS
 }

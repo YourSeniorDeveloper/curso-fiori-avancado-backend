@@ -16,8 +16,9 @@ annotate entity ZC_CR82_CABECALHOPEDIDOCOMPRAS with
                 type: #LINEITEM_REFERENCE,
                 label: 'Items',
                 position: 20 }]
-  @UI.identification: [{ position: 10, label: 'Número do Pedido' }]
-  @UI.lineItem: [{ position: 10, label: 'Número do Pedido' }]
+//  @UI.identification: [{ position: 10, label: 'Número do Pedido' }]
+//  @UI.lineItem: [{ position: 10, label: 'Número do Pedido' }]
+  @UI.hidden: true
   PoNumber;
   @UI.identification: [{ position: 20, label: 'Fornecedor' }]
   @UI.lineItem: [{ position: 20, label: 'Fornecedor' }]
