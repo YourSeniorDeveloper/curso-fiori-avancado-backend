@@ -1,4 +1,3 @@
-// - Inicio - Aplicativo Básico Cadastro de Fornecedor
 managed implementation in class zbp_i_cr82_cadastrofornecedor unique;
 strict ( 2 );
 with draft;
@@ -22,6 +21,10 @@ authorization master ( instance )
 
   draft determine action Prepare;
 
+// - A001 - Inicio - Validação de Cadastro de Fornecedor
+  validation validateEmail on save { field Email; }
+// - A001 - Fim - Validação de Cadastro de Fornecedor
+
   mapping for zcr82_t_forn
     {
       SupplierId = supplier_id;
@@ -37,4 +40,3 @@ authorization master ( instance )
     }
 
 }
-// - Fim - Aplicativo Básico Cadastro de Fornecedor

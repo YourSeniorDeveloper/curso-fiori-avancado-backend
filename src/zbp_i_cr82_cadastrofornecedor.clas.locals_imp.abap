@@ -6,6 +6,8 @@ CLASS lhc_ZI_CR82_CadastroFornecedor DEFINITION INHERITING FROM cl_abap_behavior
 
     METHODS get_global_authorizations FOR GLOBAL AUTHORIZATION
       IMPORTING REQUEST requested_authorizations FOR ZI_CR82_CadastroFornecedor RESULT result.
+    METHODS validateEmail FOR VALIDATE ON SAVE
+      IMPORTING keys FOR ZI_CR82_CadastroFornecedor~validateEmail.
 
 ENDCLASS.
 
@@ -15,6 +17,9 @@ CLASS lhc_ZI_CR82_CadastroFornecedor IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_global_authorizations.
+  ENDMETHOD.
+
+  METHOD validateEmail.
   ENDMETHOD.
 
 ENDCLASS.
