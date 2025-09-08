@@ -19,24 +19,31 @@ authorization master ( instance )
   draft action Discard;
   draft action Resume;
 
-  draft determine action Prepare;
+  //draft determine action Prepare; " Usado somente na aula inicial
 
-// - A001 - Inicio - Validação de Cadastro de Fornecedor
-  validation validateEmail on save { field Email; }
-// - A001 - Fim - Validação de Cadastro de Fornecedor
+  // - A002 - Inicio - Validação de Cadastro de Fornecedor
+  validation validateEmail on save { create; update; field Email; }
+
+  draft determine action Prepare
+  {
+    validation ( always ) validateEmail;
+
+  }
+  // - A002 - Fim - Validação de Cadastro de Fornecedor
+
 
   mapping for zcr82_t_forn
     {
-      SupplierId = supplier_id;
+      SupplierId    = supplier_id;
       Street        = street;
       AddressNumber = addr_number;
-      City       = city;
-      State      = state;
-      Country    = country;
-      Email      = email;
-      Name       = name;
-      Phone      = phone;
-      PostalCode = postal_code;
+      City          = city;
+      State         = state;
+      Country       = country;
+      Email         = email;
+      Name          = name;
+      Phone         = phone;
+      PostalCode    = postal_code;
     }
 
 }
