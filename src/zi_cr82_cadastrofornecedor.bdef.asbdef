@@ -23,10 +23,11 @@ authorization master ( instance )
 
   // - A002 - Inicio - Validação de Cadastro de Fornecedor
   validation validateEmail on save { create; update; field Email; }
-
+  validation validatePhone on save { create; update; field Phone; }
   draft determine action Prepare
   {
     validation ( always ) validateEmail;
+    validation ( always ) validatePhone;
 
   }
   // - A002 - Fim - Validação de Cadastro de Fornecedor

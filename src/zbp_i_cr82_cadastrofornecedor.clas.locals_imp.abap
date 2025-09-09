@@ -6,10 +6,17 @@ CLASS lhc_ZI_CR82_CadastroFornecedor DEFINITION INHERITING FROM cl_abap_behavior
 
     METHODS get_global_authorizations FOR GLOBAL AUTHORIZATION
       IMPORTING REQUEST requested_authorizations FOR ZI_CR82_CadastroFornecedor RESULT result.
+
 *// - A002 - Inicio - Validação de Cadastro de Fornecedor
+
     METHODS validateEmail FOR VALIDATE ON SAVE
       IMPORTING keys FOR ZI_CR82_CadastroFornecedor~validateEmail.
+
+    METHODS validatePhone FOR VALIDATE ON SAVE
+      IMPORTING keys FOR ZI_CR82_CadastroFornecedor~validatePhone.
+
 *// - A002 - Fim - Validação de Cadastro de Fornecedor
+
 ENDCLASS.
 
 CLASS lhc_ZI_CR82_CadastroFornecedor IMPLEMENTATION.
@@ -21,6 +28,7 @@ CLASS lhc_ZI_CR82_CadastroFornecedor IMPLEMENTATION.
   ENDMETHOD.
 
 *// - A002 - Inicio - Validação de Cadastro de Fornecedor
+
   METHOD validateEmail.
 
     READ ENTITIES OF ZI_CR82_CadastroFornecedor IN LOCAL MODE
@@ -30,9 +38,13 @@ CLASS lhc_ZI_CR82_CadastroFornecedor IMPLEMENTATION.
       RESULT DATA(lt_fornecedores).
 
     LOOP AT lt_fornecedores INTO DATA(ls_fornecedor).
+
       IF ls_fornecedor-Email EQ 'abc@123.com'.
+
         " Email Válido
+
       ELSEIF ls_fornecedor-Email CS '@'.
+
         APPEND VALUE #(
           %tky = ls_fornecedor-%tky
           %msg = new_message_with_text(
@@ -42,6 +54,7 @@ CLASS lhc_ZI_CR82_CadastroFornecedor IMPLEMENTATION.
         ) TO reported-zi_cr82_cadastrofornecedor.
 
       ELSE.
+
         APPEND VALUE #(
           %tky = ls_fornecedor-%tky
           %msg = new_message_with_text(
@@ -49,10 +62,55 @@ CLASS lhc_ZI_CR82_CadastroFornecedor IMPLEMENTATION.
               severity = if_abap_behv_message=>severity-error
           )
         ) TO reported-zi_cr82_cadastrofornecedor.
+
       ENDIF.
+
     ENDLOOP.
 
   ENDMETHOD.
+
+  METHOD validatePhone.
+
+    READ ENTITIES OF ZI_CR82_CadastroFornecedor IN LOCAL MODE
+      ENTITY ZI_CR82_CadastroFornecedor
+      ALL FIELDS
+      WITH CORRESPONDING #( keys )
+      RESULT DATA(lt_fornecedores).
+
+    LOOP AT lt_fornecedores INTO DATA(ls_fornecedor).
+
+      IF ls_fornecedor-Phone CP '+55*'.
+
+        " Telefone Válido
+        " Precisamos limpar a mensagem de validação anterior caso o erro tenha sido corrigido
+        APPEND VALUE #(
+          %tky = ls_fornecedor-%tky
+          %state_area = 'VALIDACAO_PHONE'
+        ) TO reported-zi_cr82_cadastrofornecedor.
+
+      ELSE.
+
+        APPEND VALUE #(
+          %tky = ls_fornecedor-%tky
+          %msg = new_message_with_text(
+              text = |Telefone inválido: { ls_fornecedor-Phone }|
+              severity = if_abap_behv_message=>severity-error
+          )
+          %element-phone = if_abap_behv=>mk-on " Destaca o campo Telefone no UI
+          %state_area = 'VALIDACAO_PHONE' " Para que o campo seja destacado precisa informar um state area
+        ) TO reported-zi_cr82_cadastrofornecedor.
+
+        APPEND VALUE #(
+            %key = ls_fornecedor-%key
+        ) TO failed-zi_cr82_cadastrofornecedor.
+
+      ENDIF.
+
+    ENDLOOP.
+
+  ENDMETHOD.
+
 *// - A002 - Fim - Validação de Cadastro de Fornecedor
+
 
 ENDCLASS.
