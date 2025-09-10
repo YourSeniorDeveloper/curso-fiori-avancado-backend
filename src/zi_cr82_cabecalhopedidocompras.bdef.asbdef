@@ -13,7 +13,8 @@ authorization master ( instance )
   update;
   delete;
   field ( readonly, numbering : managed ) PoNumber;
-  field ( readonly ) CreatedBy, CreatedOn, ChangedBy, ChangedOn, Status, TotalAmount;
+  field ( readonly ) CreatedBy, CreatedOn, ChangedBy, ChangedOn, TotalAmount;
+  field ( readonly: create ) Status;
   association _Itens { create; with draft; }
 
   draft action Edit;
@@ -22,6 +23,8 @@ authorization master ( instance )
   draft action Resume;
 
   draft determine action Prepare;
+
+  determination PreencheStatus on save { create; }
 
   mapping for zcr82_t_poh
     {

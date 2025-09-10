@@ -15,6 +15,7 @@ define behavior for ZC_CR82_CABECALHOPEDIDOCOMPRAS //alias <alias_name>
   use action Prepare;
 
   use association _Itens { create; with draft; }
+
 }
 
 define behavior for ZC_CR82_ITENSPEDIDOCOMPRAS //alias <alias_name>

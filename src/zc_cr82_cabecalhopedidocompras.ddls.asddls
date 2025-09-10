@@ -15,6 +15,11 @@ define root view entity ZC_CR82_CABECALHOPEDIDOCOMPRAS
       @EndUserText.label: 'Data do pedido'
       OrderDate,
       @EndUserText.label: 'Status do pedido'
+      @Consumption.valueHelpDefinition: [
+        {
+          entity : { name : 'ZI_CR82_VH_StatusPedidoCompra', element : 'value_low' }
+        }
+      ]
       Status,
       @Semantics.amount.currencyCode: 'Currency'
       @EndUserText.label: 'Valor total'
