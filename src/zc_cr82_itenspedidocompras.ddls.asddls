@@ -28,7 +28,14 @@ define view entity ZC_CR82_ITENSPEDIDOCOMPRAS
       Currency,
       @EndUserText.label: 'Data de Entrega'
       DeliveryDate,
+      @EndUserText.label: 'Data de Recebimento'
+      ReceiptDate,
       @EndUserText.label: 'Status do Item'
+      @Consumption.valueHelpDefinition: [
+        {
+          entity : { name : 'ZI_CR82_VH_STATUSITEMPEDCOMPRA', element : 'value_low' }
+        }
+      ]
       Status,
       /* Associations */
       _Cabecalho : redirected to parent ZC_CR82_CABECALHOPEDIDOCOMPRAS

@@ -14,7 +14,7 @@ authorization master ( instance )
   delete;
   field ( readonly, numbering : managed ) PoNumber;
   field ( readonly ) CreatedBy, CreatedOn, ChangedBy, ChangedOn, TotalAmount;
-  field ( readonly: create ) Status;
+  field ( readonly ) Status;
   association _Itens { create; with draft; }
 
   draft action Edit;
@@ -24,7 +24,9 @@ authorization master ( instance )
 
   draft determine action Prepare;
 
+// - A002 - Inicio - Preenchendo dados via Determination
   determination PreencheStatus on save { create; }
+// - A002 - Fim - Preenchendo dados via Determination
 
   mapping for zcr82_t_poh
     {
@@ -53,13 +55,26 @@ etag master PoNumber
 {
   update;
   delete;
-  field ( readonly ) PoNumber, Status;
+
+  field ( readonly ) PoNumber, Status, ReceiptDate;
+  field ( readonly : update) ItemNumber;
+
   association _Cabecalho { with draft; }
+
+// - A002 - Inicio - Preenchendo dados via Determination
+  determination PreencheStatusItem on save { create; }
+// - A002 - Inicio - Preenchendo dados via Determination
+
+
+// - A003 - Inicio - Criando Action com Parâmetros
+  action ReceberItem parameter ZI_CR82_ABSTRACT_RECEIPT_DATE result [1] $self;
+// - A003 - Fim - Criando Action com Parâmetros
 
   mapping for zcr82_t_poi
     {
       Currency     = currency;
       DeliveryDate = delivery_date;
+      ReceiptDate  = receipt_date;
       Description  = description;
       ItemNumber   = item_number;
       Material     = material;

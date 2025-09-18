@@ -31,9 +31,12 @@ annotate entity ZC_CR82_ITENSPEDIDOCOMPRAS with
   @UI.lineItem: [{ position: 80, label: 'Preço' }]
   @UI.identification: [{ position: 80, label: 'Preço' }]
   Price;
-  @UI.lineItem: [{ position: 100, label: 'Data de Entrega' }]
-  @UI.identification: [{ position: 100, label: 'Data de Entrega' }]
+  @UI.lineItem: [{ position: 90, label: 'Data de Entrega' }]
+  @UI.identification: [{ position: 90, label: 'Data de Entrega' }]
   DeliveryDate;
+  @UI.lineItem: [{ position: 100, label: 'Data de Recebimento' }]
+  @UI.identification: [{ position: 100, label: 'Data de Recebimento' }]
+  ReceiptDate;
   @UI.lineItem: [{ position: 110, label: 'Status do Item' }]
   @UI.identification: [{ position: 110, label: 'Status do Item' }]
   Status;
