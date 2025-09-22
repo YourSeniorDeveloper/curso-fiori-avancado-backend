@@ -16,6 +16,9 @@ CLASS lhc_zi_cr82_itenspedidocompras DEFINITION INHERITING FROM cl_abap_behavior
     METHODS ReceberItem FOR MODIFY
       IMPORTING keys FOR ACTION ZI_CR82_ItensPedidoCompras~ReceberItem RESULT result.
 
+    METHODS AnularRecebimento FOR MODIFY
+      IMPORTING keys FOR ACTION ZI_CR82_ItensPedidoCompras~AnularRecebimento RESULT result.
+
 *// - A003 - Fim - Criando Action com Parâmetros
 
 ENDCLASS.
@@ -53,11 +56,37 @@ CLASS lhc_zi_cr82_itenspedidocompras IMPLEMENTATION.
 
   METHOD ReceberItem.
 
+    DATA(ls_param) = keys[ 1 ]-%param.
 
+    READ ENTITIES OF ZI_CR82_CabecalhoPedidoCompras IN LOCAL MODE
+      ENTITY ZI_CR82_ItensPedidoCompras
+      ALL FIELDS WITH CORRESPONDING #( keys )
+      RESULT DATA(lt_itens).
+
+    LOOP AT lt_itens ASSIGNING FIELD-SYMBOL(<fs_itens>).
+      <fs_itens>-status = 'Fornecido'.
+      <fs_itens>-ReceiptDate = ls_param-ReceiptDate.
+    ENDLOOP.
+
+    MODIFY ENTITIES OF ZI_CR82_CabecalhoPedidoCompras IN LOCAL MODE
+      ENTITY ZI_CR82_ItensPedidoCompras
+        UPDATE FIELDS ( status  ReceiptDate )
+        WITH VALUE #( FOR ls_item IN lt_itens  (
+                           %tky         = ls_item-%tky
+                           status       = ls_item-status
+                           ReceiptDate  = ls_item-ReceiptDate ) ).
+
+
+
+    result = VALUE #( FOR ls_item IN lt_itens ( %tky = ls_item-%tky %param = ls_item ) ).
 
   ENDMETHOD.
 
+  METHOD AnularRecebimento.
+  ENDMETHOD.
+
 *// - A003 - Fim - Criando Action com Parâmetros
+
 
 ENDCLASS.
 

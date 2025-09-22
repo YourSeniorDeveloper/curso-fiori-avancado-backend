@@ -14,6 +14,8 @@ annotate entity ZC_CR82_ITENSPEDIDOCOMPRAS with
 
 //  @UI.lineItem: [{ position: 20, label: 'Número do Pedido' }]
 //  @UI.identification: [{ position: 20, label: 'Número do Pedido' }]
+  @UI.identification: [ {type: #FOR_ACTION, dataAction: 'ReceberItem', label: 'Receber Item' } ]
+  @UI.lineItem: [ {type: #FOR_ACTION, dataAction: 'AnularRecebimento', label: 'Anular Recebimento', requiresContext: true } ] 
   @UI.hidden: true
   PoNumber;
   @UI.lineItem: [{ position: 30, label: 'Número do Item' }]

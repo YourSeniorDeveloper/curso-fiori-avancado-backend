@@ -23,5 +23,10 @@ define behavior for ZC_CR82_ITENSPEDIDOCOMPRAS //alias <alias_name>
   use update;
   use delete;
 
+// - A003 - Inicio - Criando Action com Parâmetros
+  use action ReceberItem;
+  use action AnularRecebimento;
+// - A003 - Fim - Criando Action com Parâmetros
+
   use association _Cabecalho { with draft; }
 }

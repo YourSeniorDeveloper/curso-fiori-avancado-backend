@@ -68,6 +68,9 @@ etag master PoNumber
 
 // - A003 - Inicio - Criando Action com Parâmetros
   action ReceberItem parameter ZI_CR82_ABSTRACT_RECEIPT_DATE result [1] $self;
+
+  action AnularRecebimento result [0..*] $self;
+
 // - A003 - Fim - Criando Action com Parâmetros
 
   mapping for zcr82_t_poi
